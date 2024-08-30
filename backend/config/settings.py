@@ -44,10 +44,12 @@ SHARED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "users",
+    "categories_shared",
 ]
 
 TENANT_APPS = [
     "users",
+    "clothes_tenant",
 ]
 
 INSTALLED_APPS = list(SHARED_APPS) + [
