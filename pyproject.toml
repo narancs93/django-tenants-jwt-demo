@@ -17,6 +17,7 @@ django-tenants = "^3.7.0"
 [tool.poetry.group.dev.dependencies]
 commitizen = "^3.29.0"
 ruff = "^0.6.3"
+pre-commit = "^3.8.0"
 
 [build-system]
 requires = ["poetry-core"]
