@@ -43,8 +43,10 @@ SHARED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "rest_framework",
     "users",
     "categories_shared",
+    "api",
 ]
 
 TENANT_APPS = [
@@ -149,3 +151,5 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+SHOW_PUBLIC_IF_NO_TENANT_FOUND = True
