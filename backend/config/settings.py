@@ -31,8 +31,11 @@ SECRET_KEY = "django-insecure-h)5@h+5(ai02z($8*^p7=0!(xwxz-n50@537wlm5*9b01r2wc$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ["*"]
+FRONTEND_URL = os.getenv("FRONTEND_URL")
+CORS_ORIGIN_WHITELIST = [FRONTEND_URL]
+CORS_ALLOW_ALL_ORIGINS = True # If this is used then `CORS_ALLOWED_ORIGINS` will not have any effect
+CORS_ALLOW_CREDENTIALS = True
 
 # Application definition
 
@@ -44,6 +47,7 @@ SHARED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "corsheaders",
     "rest_framework",
     "users",
     "categories_shared",
@@ -63,6 +67,7 @@ TENANT_MODEL = "users.Client"
 TENANT_DOMAIN_MODEL = "users.Domain"
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
     "config.middlewares.tenant_jwt_auth_middleware.TenantJWTAuthMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
